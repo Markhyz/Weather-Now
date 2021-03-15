@@ -11,11 +11,11 @@
         <div v-show="isExpanded" class="weather-card__extra-weather-info">
           <div>
             <label>HUMIDITY</label>
-            {{ humidity }}%
+            <span class="weather-card__humidity">{{ humidity }}%</span>
           </div>
           <div>
             <label>PRESSURE</label>
-            {{ pressure }}hPa
+            <span class="weather-card__pressure">{{ pressure }}hPa</span>
           </div>
         </div>
         <div class="weather-card__update-info">
@@ -132,7 +132,7 @@ export default {
             humidtity: data.main.humidity,
             pressure: data.main.pressure,
             updatedAt: currentTime.valueOf(),
-            expiresAt: currentTime.add(10, "s").valueOf(),
+            expiresAt: currentTime.add(10, "m").valueOf(),
           };
 
           global.localStorage.setItem(cacheKey, JSON.stringify(weatherInfo));
